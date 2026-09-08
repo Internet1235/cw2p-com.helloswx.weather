@@ -31,7 +31,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '>=3.9'
+          python-version: '3.12'
           cache: 'pip'
       
       - name: Set up Rust
@@ -56,11 +56,11 @@ jobs:
           # Build .zip format
           cw-plugin-pack --format zip
       
-      - name: Publish to plugin registry
-        env:
-          CWPT_TOKEN: ${{ secrets.CWPT_TOKEN }}
-        run: |
-          cw-plugin-publish
+      # - name: Publish to plugin registry
+      #   env:
+      #     CWPT_TOKEN: ${{ secrets.CWPT_TOKEN }}
+      #   run: |
+      #     cw-plugin-publish
       
       - name: Get version from tag
         id: get_version
